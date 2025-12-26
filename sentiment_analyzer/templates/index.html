@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        function resetResult() {
+            document.getElementById("resultCard").style.display = "none";
+        }
+
+        function enableButton() {
+            const textarea = document.querySelector('textarea[name="opinion"]');
+            const button = document.getElementById('analyzeBtn');
+            button.disabled = textarea.value.trim() === "";
+            textarea.addEventListener('input', () => {
+                button.disabled = textarea.value.trim() === "";
+            });
+        }
+
+        window.onload = enableButton;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analyzer 💬</h1>
+        <form method="POST">
+            <textarea name="opinion" placeholder="Enter your opinion here..." required>{{ text }}</textarea>
+            <button type="submit" id="analyzeBtn">Analyze Sentiment</button>
+        </form>
+
+        {% if sentiment %}
+        <div class="result-card" id="resultCard">
+            <h2>Sentiment Result: <span class="{{ sentiment|lower }}">{{ sentiment }} {{ emoji }}</span></h2>
+            <p>Analyzed by: <strong>Smarika Tripathi</strong></p>
+            <button type="button" onclick="resetResult();">Check Another Sentence</button>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
+

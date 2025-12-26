@@ -1,0 +1,91 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #fff;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 400px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+button {
+    background-color: #ff7e5f;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #feb47b;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.result-card {
+    background: rgba(0,0,0,0.3);
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 0.5s;
+}
+
+.result-card span.positive {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.result-card span.negative {
+    color: #F44336;
+    font-weight: bold;
+}
+
+.result-card span.neutral {
+    color: #FFC107;
+    font-weight: bold;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
